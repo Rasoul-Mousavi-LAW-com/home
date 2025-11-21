@@ -23,11 +23,12 @@
             color: var(--dark-text);
             line-height: 1.8;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* هدر و ناوبری */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
             padding: 1rem 0;
@@ -146,6 +147,11 @@
             position: relative;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             transition: transform 0.5s ease;
+            background-color: #f5f5f5;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="%23d4af37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 80px;
         }
 
         .profile-image:hover {
@@ -522,6 +528,18 @@
                 height: 45px;
                 width: 45px;
             }
+            
+            .specialty-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .feature-item {
+                padding: 1rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -531,7 +549,8 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://raw.githubusercontent.com/rasoul-mousavi-law-com/home/main/unnamed.jpg" alt="رسول موسوی - وکیل پایه یک دادگستری" class="profile-image">
+                <!-- لوگو با تصویر مورد نظر شما -->
+                <img src="https://img.freepik.com/premium-vector/modern-law-firm-logo-featuring-stylized-scales-justice-surrounded-by-laurel-wreath-develop-clean-modern-logo-that-represents-expertise-legal-guidance_538213-67891.jpg" alt="لوگو رسول موسوی" class="logo">
                 رسول موسوی
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -552,8 +571,8 @@
     <!-- هیرو سکشن -->
     <section id="home" class="hero-section">
         <div class="container">
-            <!-- این تصویر موقتی است. لطفا بعدا با عکس شخصی خودتان جایگزین کنید -->
-            <img src="https://raw.githubusercontent.com/rasoul-mousavi-law-com/home/main/unnamed.jpg" alt="رسول موسوی - وکیل پایه یک دادگستری" class="profile-image">
+            <!-- تصویر پروفایل جایگزین شده با آیکون -->
+            <div class="profile-image"></div>
             <h1 class="fade-in-up">رسول موسوی</h1>
             <p class="lead fade-in-up">وکیل پایه یک دادگستری | متخصص دعاوی رمزارز و قاچاق کالا و ارز</p>
             <p class="subtitle fade-in-up">ارائه خدمات حقوقی تخصصی با تمرکز بر روی پرونده‌های پیچیده اقتصادی و بین‌المللی</p>
@@ -848,6 +867,11 @@
         // مشاهده عناصری که باید انیمیشن داشته باشند
         document.querySelectorAll('.specialty-card, .about-section .lead, .about-section p, .qualification-list, .feature-item').forEach(el => {
             observer.observe(el);
+        });
+
+        // اطمینان از بارگذاری فونت
+        document.fonts.ready.then(function() {
+            console.log('فونت‌ها بارگذاری شدند');
         });
     </script>
 </body>
